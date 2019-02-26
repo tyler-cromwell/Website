@@ -8,6 +8,6 @@ This is the repository for my personal website.
 - [Bootstrap][bootstrap] 4.3.1
 
 
-[python3]: https://www.python.org/
+[python]: https://www.python.org/
 [django]: https://www.djangoproject.com/
 [bootstrap]: https://getbootstrap.com/
