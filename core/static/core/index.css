@@ -1,8 +1,16 @@
-html, body, p {
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
-html, body {
-    height: 100%;
+div.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+img#profile {
+    width: 160px;
 }
