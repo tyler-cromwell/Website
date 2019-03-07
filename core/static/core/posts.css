@@ -2,9 +2,16 @@ li {
     display: list-item;
     list-style: none;
 }
-.date {
+
+a:hover {
+    color: inherit; /* not working? */
+    text-decoration: none;
+}
+
+span.date {
+    font-weight: bold;
     display: inline-block;
-    width: 100px;
+    width: 110px;
     margin-right: 10px;
     text-align: right;
 }

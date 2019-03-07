@@ -21,7 +21,12 @@
 
         <ul>
         {% for post in posts %}
-            <li><span class="date">{{ post.published_date }}</span>{{ post.title }}</li>
+            <li>
+                <a href="">
+                    <span class="date">{{ post.published_date }}</span>
+                    {{ post.title }}
+                </a>
+            </li>
         {% endfor %}
         </ul>
 
