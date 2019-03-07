@@ -4,13 +4,7 @@ li {
 }
 .date {
     display: inline-block;
-    width: 90px;
+    width: 100px;
     margin-right: 10px;
     text-align: right;
 }
-/*
-<ul>
-    <li><span class="date">2/25/2019</span></li>
-    <li><span class="date">12/25/2019</span></li>
-</ul>
-*/

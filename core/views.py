@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 
+from .models import Post
+
 
 def index(request):
     template = loader.get_template('core/index.html')
@@ -16,6 +18,9 @@ def about(request):
 
 
 def posts(request):
+    posts = Post.objects.order_by('-published_date')
     template = loader.get_template('core/posts.html')
-    context = {}
+    context = {
+        'posts': posts
+    }
     return HttpResponse(template.render(context, request))
