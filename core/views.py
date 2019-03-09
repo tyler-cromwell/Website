@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.template import loader
+from django.views import generic
 
-from .models import Post
+from . import models
 
 
 def index(request):
@@ -18,9 +19,18 @@ def about(request):
 
 
 def posts(request):
-    posts = Post.objects.order_by('-published_date')
+    posts = models.Post.objects.order_by('-published_date')
     template = loader.get_template('posts.html')
     context = {
         'posts': posts
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def details(request, post_id):
+    post = get_object_or_404(models.Post, pk=post_id)
+    template = loader.get_template('details.html')
+    context = {
+        'post': post
     }
     return HttpResponse(template.render(context, request))

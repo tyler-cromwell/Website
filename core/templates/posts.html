@@ -19,7 +19,7 @@
         <ul>
         {% for post in posts %}
             <li>
-                <a href="">
+                <a href="{% url 'core:details' post.id %}">
                     <span class="date">{{ post.published_date }}</span>
                     {{ post.title }}
                 </a>
