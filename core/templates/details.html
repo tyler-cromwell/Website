@@ -17,6 +17,6 @@
         <a href="{% url 'core:posts' %}">Posts</a>
 
         <h1>{{ post.title }}</h1>
-        <h3>By {{ post.author }}</h3>
+        <h4>By {{ author.first_name }} {{ author.last_name }}</h4>
         <p>{{ post.text }}</p>
 {% endblock body %}
