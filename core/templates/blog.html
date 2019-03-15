@@ -14,23 +14,6 @@
 {% block body %}
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
         <div class="container">
-            <header class="blog-header py-4">
-                <div class="row flex-nowrap justify-content-between align-items-center">
-                    <div class="col text-center">
-                        <a class="blog-header-logo text-dark" href="#">Tyler Cromwell</a>
-                    </div>
-                </div>
-            </header>
-
-            <div class="nav-scroller py-1 mb-2">
-                <nav class="nav d-flex justify-content-between">
-                    <a class="p-2 text-muted" href="#">Mathematics</a>
-                    <a class="p-2 text-muted" href="#">Physics</a>
-                    <a class="p-2 text-muted" href="#">Programming</a>
-                    <a class="p-2 text-muted" href="#">Travel</a>
-                </nav>
-            </div>
-
             <div class="row mb-2">
                 <div class="col-md-4">
                     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -113,7 +96,14 @@
                 </aside>
 
                 <div class="col-md-9 blog-main">
-                    <h3 class="pb-4 mb-4 font-italic border-bottom">Latest Posts</h3>
+                    <div id="nav" class="nav-scroller mt-2 mb-4 border-bottom">
+                        <nav class="nav d-flex justify-content-between">
+                            <a class="p-2 text-muted" href="#">Mathematics</a>
+                            <a class="p-2 text-muted" href="#">Physics</a>
+                            <a class="p-2 text-muted" href="#">Programming</a>
+                            <a class="p-2 text-muted" href="#">Travel</a>
+                        </nav>
+                    </div>
 
                     <div class="blog-post">
                         <h2 class="blog-post-title">Sample blog post</h2>
