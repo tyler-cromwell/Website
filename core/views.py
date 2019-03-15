@@ -33,3 +33,8 @@ def details(request, post_id):
         'author': post.author
     }
     return HttpResponse(template.render(context, request))
+
+
+def blog(request):
+    template = loader.get_template('blog.html')
+    return HttpResponse(template.render({}, request))
