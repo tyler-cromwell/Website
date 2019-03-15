@@ -3,70 +3,31 @@
 
 
 {% block meta %}
+        <title>Tyler Cromwell</title>
 {% endblock meta %}
 
 
 {% block css %}
         <link rel="stylesheet" type="text/css" href="{% static "blog.css" %}">
+        <style>
+            img#profile {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
 {% endblock css %}
 
 
 {% block body %}
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
         <div class="container">
-            <div class="row mb-2">
-                <div class="col-md-4">
-                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Mathematics</strong>
-                            <h3 class="mb-0">Featured Post #1</h3>
-                            <div class="mb-1 text-muted">Nov 12</div>
-                            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <!-- placeholder -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-danger">Programming</strong>
-                            <h3 class="mb-0">Featured Post #2</h3>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <!-- placeholder -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-warning">Travel</strong>
-                            <h3 class="mb-0">Featured Post #3</h3>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <!-- placeholder -->
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <main role="main" class="container">
             <div class="row">
-                <aside class="col-md-3 blog-sidebar">
+                <aside class="col-md-3 blog-sidebar pt-3">
                     <div class="p-4 mb-3 text-center">
-                        <img class="rounded-circle" width="180" src="{% static "profile.jpg" %}"/>
+                        <img id="profile" class="rounded-circle" src="{% static "profile.jpg" %}"/>
                     </div>
 
                     <div class="p-4 mb-3 bg-light rounded">
@@ -74,35 +35,84 @@
                         <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                     </div>
 
-                    <div class="p-4">
-                        <h4 class="font-italic">Elsewhere</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">GitHub</a></li>
-                            <li><a href="#">LinkedIn</a></li>
-                            <li><a href="#">HackerRank</a></li>
-                            <li><a href="#">LeetCode</a></li>
-                        </ol>
-                    </div>
+                    <div class="row">
+                        <div class="col p-4 text-center">
+                            <h4 class="font-italic">Elsewhere</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#">GitHub</a></li>
+                                <li><a href="#">LinkedIn</a></li>
+                                <li><a href="#">HackerRank</a></li>
+                                <li><a href="#">LeetCode</a></li>
+                            </ol>
+                        </div>
 
-                    <div class="p-4">
-                        <h4 class="font-italic">Archives</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">March 2014</a></li>
-                            <li><a href="#">February 2014</a></li>
-                            <li><a href="#">January 2014</a></li>
-                            <li><a href="#">December 2013</a></li>
-                        </ol>
+                        <div class="col p-4 text-center">
+                            <h4 class="font-italic">Archives</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#">March 2014</a></li>
+                                <li><a href="#">February 2014</a></li>
+                                <li><a href="#">January 2014</a></li>
+                                <li><a href="#">December 2013</a></li>
+                            </ol>
+                        </div>
                     </div>
                 </aside>
 
                 <div class="col-md-9 blog-main">
                     <div id="nav" class="nav-scroller mt-2 mb-4 border-bottom">
                         <nav class="nav d-flex justify-content-between">
-                            <a class="p-2 text-muted" href="#">Mathematics</a>
-                            <a class="p-2 text-muted" href="#">Physics</a>
-                            <a class="p-2 text-muted" href="#">Programming</a>
-                            <a class="p-2 text-muted" href="#">Travel</a>
+                            <a class="p-2 text-dark" href="#">Mathematics</a>
+                            <a class="p-2 text-dark" href="#">Physics</a>
+                            <a class="p-2 text-dark" href="#">Programming</a>
+                            <a class="p-2 text-dark" href="#">Travel</a>
                         </nav>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-4">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-1 text-primary">Phyiscs</strong>
+                                    <h4 class="mb-0">Featured Post #1</h4>
+                                    <div class="mb-1 text-muted">Nov 12</div>
+                                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="stretched-link">Continue reading</a>
+                                </div>
+                                <div class="col-auto d-none d-lg-block">
+                                    <!-- placeholder -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-1 text-danger">Programming</strong>
+                                    <h4 class="mb-0">Featured Post #2</h4>
+                                    <div class="mb-1 text-muted">Nov 11</div>
+                                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="stretched-link">Continue reading</a>
+                                </div>
+                                <div class="col-auto d-none d-lg-block">
+                                    <!-- placeholder -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-1 text-warning">Travel</strong>
+                                    <h4 class="mb-0">Featured Post #3</h4>
+                                    <div class="mb-1 text-muted">Nov 11</div>
+                                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="stretched-link">Continue reading</a>
+                                </div>
+                                <div class="col-auto d-none d-lg-block">
+                                    <!-- placeholder -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="blog-post">
