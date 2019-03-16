@@ -11,11 +11,6 @@ def index(request):
     return HttpResponse(template.render({}, request))
 
 
-def about(request):
-    template = loader.get_template('about.html')
-    return HttpResponse(template.render({}, request))
-
-
 def posts(request):
     posts = models.Post.objects.order_by('-published_date')
     template = loader.get_template('posts.html')
@@ -33,8 +28,3 @@ def details(request, post_id):
         'author': post.author
     }
     return HttpResponse(template.render(context, request))
-
-
-def blog(request):
-    template = loader.get_template('blog.html')
-    return HttpResponse(template.render({}, request))
