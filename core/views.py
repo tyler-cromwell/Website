@@ -59,7 +59,6 @@ def details(request, post_id):
     template = loader.get_template('details.html')
     context = {
         'post': post,
-        'author': post.author,
         'category': post.category,
         'books': models.BOOKS,
         'programming': models.PROGRAMMING,
