@@ -14,6 +14,13 @@
 {% block body %}
         <a href="{% url 'core:index' %}">Home</a>
         <a href="{% url 'core:posts' %}">Posts</a>
+        {% if category == books %}
+            <a href="{% url 'core:books' %}">Book Problems & Solutions</a>
+        {% elif category == programming %}
+            <a href="{% url 'core:programming' %}">Programming Tutorials</a>
+        {% elif category == travel %}
+            <a href="{% url 'core:travel' %}">Travel Stories</a>
+        {% endif %}
 
         <h1>{{ post.title }}</h1>
         <h4>By {{ author.first_name }} {{ author.last_name }}</h4>

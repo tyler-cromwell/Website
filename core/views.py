@@ -12,7 +12,41 @@ def index(request):
 
 
 def posts(request):
-    posts = models.Post.objects.order_by('-published_date')
+    posts = models.Post.objects \
+            .order_by('-published_date')
+    template = loader.get_template('posts.html')
+    context = {
+        'posts': posts
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def books(request):
+    posts = models.Post.objects \
+            .filter(category=models.BOOKS) \
+            .order_by('-published_date')
+    template = loader.get_template('posts.html')
+    context = {
+        'posts': posts
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def programming(request):
+    posts = models.Post.objects \
+            .filter(category=models.PROGRAMMING) \
+            .order_by('-published_date')
+    template = loader.get_template('posts.html')
+    context = {
+        'posts': posts
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def travel(request):
+    posts = models.Post.objects \
+            .filter(category=models.TRAVEL) \
+            .order_by('-published_date')
     template = loader.get_template('posts.html')
     context = {
         'posts': posts
@@ -25,6 +59,10 @@ def details(request, post_id):
     template = loader.get_template('details.html')
     context = {
         'post': post,
-        'author': post.author
+        'author': post.author,
+        'category': post.category,
+        'books': models.BOOKS,
+        'programming': models.PROGRAMMING,
+        'travel': models.TRAVEL
     }
     return HttpResponse(template.render(context, request))
