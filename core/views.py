@@ -13,6 +13,7 @@ def index(request):
 
 def posts(request):
     posts = models.Post.objects \
+            .filter(enabled=True) \
             .order_by('-published_date')
     template = loader.get_template('posts.html')
     context = {
@@ -23,6 +24,7 @@ def posts(request):
 
 def books(request):
     posts = models.Post.objects \
+            .filter(enabled=True) \
             .filter(category=models.BOOKS) \
             .order_by('-published_date')
     template = loader.get_template('posts.html')
@@ -34,6 +36,7 @@ def books(request):
 
 def programming(request):
     posts = models.Post.objects \
+            .filter(enabled=True) \
             .filter(category=models.PROGRAMMING) \
             .order_by('-published_date')
     template = loader.get_template('posts.html')
@@ -45,6 +48,7 @@ def programming(request):
 
 def travel(request):
     posts = models.Post.objects \
+            .filter(enabled=True) \
             .filter(category=models.TRAVEL) \
             .order_by('-published_date')
     template = loader.get_template('posts.html')
