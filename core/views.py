@@ -15,10 +15,9 @@ def index(request):
     featured = models.Post.objects \
                .filter(enabled=True) \
                .filter(featured=True) \
-               .order_by('-published_date')
-    reversed(featured)
+               .order_by('-id')
     context = {
-        'featured': featured[:3],
+        'featured': featured[:2],
         'books': models.BOOKS,
         'programming': models.PROGRAMMING,
         'travel': models.TRAVEL
@@ -29,7 +28,7 @@ def index(request):
 def posts(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
-            .order_by('-published_date')
+            .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
 
@@ -38,7 +37,7 @@ def books(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
             .filter(category=models.BOOKS) \
-            .order_by('-published_date')
+            .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
 
@@ -47,7 +46,7 @@ def programming(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
             .filter(category=models.PROGRAMMING) \
-            .order_by('-published_date')
+            .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
 
@@ -56,7 +55,7 @@ def travel(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
             .filter(category=models.TRAVEL) \
-            .order_by('-published_date')
+            .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
 
