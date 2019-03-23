@@ -12,7 +12,18 @@ def _inner_view(request, name, context={}):
 
 
 def index(request):
-    return _inner_view(request, 'index.html')
+    featured = models.Post.objects \
+               .filter(enabled=True) \
+               .filter(featured=True) \
+               .order_by('-published_date')
+    reversed(featured)
+    context = {
+        'featured': featured[:3],
+        'books': models.BOOKS,
+        'programming': models.PROGRAMMING,
+        'travel': models.TRAVEL
+    }
+    return _inner_view(request, 'index.html', context)
 
 
 def posts(request):
