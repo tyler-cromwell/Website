@@ -18,9 +18,9 @@ def index(request):
                .order_by('-id')
     context = {
         'featured': featured[:2],
-        'books': models.BOOKS,
-        'programming': models.PROGRAMMING,
-        'travel': models.TRAVEL
+        'books': models.Category.BOOKS.value,
+        'programming': models.Category.PROGRAMMING.value,
+        'travel': models.Category.TRAVEL.value
     }
     return _inner_view(request, 'index.html', context)
 
@@ -36,7 +36,7 @@ def posts(request):
 def books(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
-            .filter(category=models.BOOKS) \
+            .filter(category=models.Category.BOOKS.value) \
             .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
@@ -45,7 +45,7 @@ def books(request):
 def programming(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
-            .filter(category=models.PROGRAMMING) \
+            .filter(category=models.Category.PROGRAMMING.value) \
             .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
@@ -54,7 +54,7 @@ def programming(request):
 def travel(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
-            .filter(category=models.TRAVEL) \
+            .filter(category=models.TRAVEL.value) \
             .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
@@ -65,8 +65,8 @@ def details(request, post_id):
     context = {
         'post': post,
         'category': post.category,
-        'books': models.BOOKS,
-        'programming': models.PROGRAMMING,
-        'travel': models.TRAVEL
+        'books': models.Category.BOOKS.value,
+        'programming': models.Category.PROGRAMMING.value,
+        'travel': models.Category.TRAVEL.value
     }
     return _inner_view(request, 'details.html', context)

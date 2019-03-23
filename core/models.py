@@ -1,21 +1,25 @@
+import enum
+
 from django.db import models
 from django.utils import timezone
 
 
-BOOKS = 1
-PROGRAMMING = 2
-TRAVEL = 3
-CATEGORIES = (
-    (BOOKS,         "Books"),
-    (PROGRAMMING,   "Programming"),
-    (TRAVEL,        "Travel"),
+class Category(enum.Enum):
+    BOOKS = 1
+    PROGRAMMING = 2
+    TRAVEL = 3
+
+CHOICES = (
+    (Category.BOOKS.value,        "Books"),
+    (Category.PROGRAMMING.value,  "Programming"),
+    (Category.TRAVEL.value,       "Travel"),
 )
 
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    category = models.SmallIntegerField(choices=CATEGORIES, default=PROGRAMMING)
+    category = models.SmallIntegerField(choices=CHOICES, default=Category.PROGRAMMING.value)
     summary = models.CharField(max_length=80)
     text = models.TextField()
     created_date = models.DateField(default=timezone.now)
