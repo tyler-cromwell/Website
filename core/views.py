@@ -54,7 +54,7 @@ def programming(request):
 def travel(request):
     posts = models.Post.objects \
             .filter(enabled=True) \
-            .filter(category=models.TRAVEL.value) \
+            .filter(category=models.Category.TRAVEL.value) \
             .order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'posts.html', context)
