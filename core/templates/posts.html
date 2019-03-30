@@ -18,8 +18,15 @@
         <ul>
         {% for post in posts %}
             <li>
-                <a href="{% url 'core:details' post.id %}">
+                <a class="text-dark" href="{% url 'core:details' post.id %}">
                     <span class="date">{{ post.published_date }}</span>
+                    {% if post.category == books %}
+                        <span class="text-primary category">Books</span>
+                    {% elif post.category == programming %}
+                        <span class="text-danger category">Programming</span>
+                    {% elif post.category == travel %}
+                        <span class="text-warning category">Travel</span>
+                    {% endif %}
                     {{ post.title }}
                 </a>
             </li>

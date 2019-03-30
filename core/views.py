@@ -7,6 +7,11 @@ from . import models
 
 
 def _inner_view(request, name, context={}):
+    context.update({
+        'books': models.Category.BOOKS.value,
+        'programming': models.Category.PROGRAMMING.value,
+        'travel': models.Category.TRAVEL.value
+    })
     template = loader.get_template(name)
     return HttpResponse(template.render(context, request))
 
@@ -16,12 +21,7 @@ def index(request):
                .filter(enabled=True) \
                .filter(featured=True) \
                .order_by('-id')
-    context = {
-        'featured': featured[:2],
-        'books': models.Category.BOOKS.value,
-        'programming': models.Category.PROGRAMMING.value,
-        'travel': models.Category.TRAVEL.value
-    }
+    context = {'featured': featured[:2]}
     return _inner_view(request, 'index.html', context)
 
 
@@ -65,8 +65,5 @@ def details(request, post_id):
     context = {
         'post': post,
         'category': post.category,
-        'books': models.Category.BOOKS.value,
-        'programming': models.Category.PROGRAMMING.value,
-        'travel': models.Category.TRAVEL.value
     }
     return _inner_view(request, 'details.html', context)
