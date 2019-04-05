@@ -1,11 +1,21 @@
+/*
 div.vertical-center {
     min-height: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
+*/
+
 
 img#profile {
     max-width: 100%;
     height: auto;
+}
+
+
+h5.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

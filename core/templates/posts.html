@@ -15,21 +15,45 @@
 {% block body %}
         <a href="{% url 'core:index' %}">Home</a>
 
-        <ul>
-        {% for post in posts %}
-            <li>
-                <a class="text-dark" href="{% url 'core:details' post.id %}">
-                    <span class="date">{{ post.published_date }}</span>
-                    {% if post.category == books %}
-                        <span class="text-primary category">Books</span>
-                    {% elif post.category == programming %}
-                        <span class="text-danger category">Programming</span>
-                    {% elif post.category == travel %}
-                        <span class="text-warning category">Travel</span>
-                    {% endif %}
-                    {{ post.title }}
-                </a>
-            </li>
-        {% endfor %}
-        </ul>
+        <main role="main" class="container mw-100">
+            <div class="row pb-5">
+                <div class="col-md-2"></div>
+
+                <aside class="col-md-2">
+                    <div class="col text-center">
+                        <h4 class="font-italic">Archives</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="#">2023</a></li>
+                            <li><a href="#">2022</a></li>
+                            <li><a href="#">2021</a></li>
+                            <li><a href="#">2020</a></li>
+                            <li><a href="#">2019</a></li>
+                        </ol>
+                    </div>
+                </aside>
+
+                <div class="col-md-6">
+                    <ul class="pl-0">
+                    {% for post in posts %}
+                        <li>
+                            <a class="text-dark" href="{% url 'core:details' post.id %}">
+                                <span class="date">{{ post.published_date }}</span>
+                                {% if post.category == books %}
+                                    <span class="text-primary category">Books</span>
+                                {% elif post.category == programming %}
+                                    <span class="text-danger category">Programming</span>
+                                {% elif post.category == travel %}
+                                    <span class="text-warning category">Travel</span>
+                                {% endif %}
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
+        </main>
+
 {% endblock body %}

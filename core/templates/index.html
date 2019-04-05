@@ -25,6 +25,7 @@
                         <h4 class="font-italic">About Me</h4>
                         <p class="mb-0">
                             My name is Tyler Cromwell, I'm a senior majoring in Computer Science at the University of Connecticut.
+                            I am heavily interested in travelling and pretty much all things related to computers and circuits.
                         </p>
                     </div>
 
@@ -36,16 +37,6 @@
                                 <li><a href="#">LinkedIn</a></li>
                                 <li><a href="https://www.hackerrank.com/tjc6185">HackerRank</a></li>
                                 <li><a href="https://leetcode.com/tjc6185/">LeetCode</a></li>
-                            </ol>
-                        </div>
-
-                        <div class="col p-4 text-center">
-                            <h4 class="font-italic">Archives</h4>
-                            <ol class="list-unstyled">
-                                <li><a href="#">March 2014</a></li>
-                                <li><a href="#">February 2014</a></li>
-                                <li><a href="#">January 2014</a></li>
-                                <li><a href="#">December 2013</a></li>
                             </ol>
                         </div>
                     </div>
@@ -66,58 +57,24 @@
                             <div class="col-md-6 mb-4">
                                 <div class="row no-gutters border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative h-100">
                                     <div class="col p-4 d-flex flex-column position-static">
-                                        {% if post.category == books %}
-                                            <strong class="d-inline-block text-primary">Books</strong>
-                                        {% elif post.category == programming %}
-                                            <strong class="d-inline-block text-danger">Programming</strong>
-                                        {% elif post.category == travel %}
-                                            <strong class="d-inline-block text-warning">Travel</strong>
-                                        {% endif %}
-                                        <h4 class="mb-0">{{ post.title }}</h4>
-                                        <div class="mb-1 text-muted">{{ post.published_date }}</div>
+                                        <h5 class="card-title pb-1 mb-0">{{ post.title }}</h5>
+                                        <div class="mb-1 text-muted">
+                                            {{ post.published_date }} | 
+                                            {% if post.category == books %}
+                                                <strong class="d-inline-block" style="color: saddlebrown;">Books</strong>
+                                            {% elif post.category == programming %}
+                                                <strong class="d-inline-block text-danger">Programming</strong>
+                                            {% elif post.category == travel %}
+                                                <strong class="d-inline-block text-warning">Travel</strong>
+                                            {% endif %}
+                                        </div>
                                         <p class="card-text mb-auto">{{ post.summary }}</p>
-                                        <a href="{% url 'core:details' post.id %}" class="stretched-link">Continue reading</a>
+                                        <a href="{% url 'core:details' post.id %}" class="stretched-link"></a>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
-
-                    <h2>Sample blog post</h2>
-                    <p>January 1, 2014</p>
-
-                    <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-                    <hr>
-                    <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                    <blockquote>
-                        <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </blockquote>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                    <h2>Heading</h2>
-                    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <h3>Sub-heading</h3>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <pre><code>Example code block</code></pre>
-                    <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-                    <h3>Sub-heading</h3>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <ul>
-                        <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                        <li>Donec id elit non mi porta gravida at eget metus.</li>
-                        <li>Nulla vitae elit libero, a pharetra augue.</li>
-                    </ul>
-                    <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                    <ol>
-                        <li>Vestibulum id ligula porta felis euismod semper.</li>
-                        <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                        <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-                    </ol>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-
-                    <nav>
-                        <a class="btn btn-outline-primary" href="#">Older</a>
-                        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-                    </nav>
                 </div>
              </div>
         </main>

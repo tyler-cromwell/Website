@@ -21,7 +21,7 @@ def index(request):
                .filter(enabled=True) \
                .filter(featured=True) \
                .order_by('-id')
-    context = {'featured': featured[:2]}
+    context = {'featured': featured}
     return _inner_view(request, 'index.html', context)
 
 
