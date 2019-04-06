@@ -19,3 +19,38 @@ h5.card-title {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+li {
+    display: list-item;
+    list-style: none;
+}
+
+
+a:hover {
+    color: inherit; /* not working? */
+    text-decoration: none;
+}
+
+
+li.post-link {
+    line-height: 1.6;
+}
+
+
+span.date {
+    font-weight: bold;
+    font-style: italic;
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+span.category {
+    font-weight: bold;
+    display: inline-block;
+    width: 110px;
+    margin-right: 10px;
+    text-align: center;
+}

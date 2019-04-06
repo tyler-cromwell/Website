@@ -16,12 +16,12 @@
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
         <main role="main" class="container">
             <div class="row pb-5">
-                <aside class="col-md-3 pt-3">
+                <aside class="col-md-3 pt-4">
                     <div class="p-4 mb-3 text-center">
                         <img id="profile" class="rounded-circle" src="{% static "profile.jpg" %}"/>
                     </div>
 
-                    <div class="p-4 mb-3 rounded">
+                    <div class="p-4 mb-3 border border-dark rounded bg-light">
                         <h4 class="font-italic">About Me</h4>
                         <p class="mb-0">
                             My name is Tyler Cromwell, I'm a senior majoring in Computer Science at the University of Connecticut.
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col p-4 text-center">
+                        <div class="col p-2 text-center">
                             <h4 class="font-italic">Elsewhere</h4>
                             <ol class="list-unstyled">
                                 <li><a href="https://github.com/tyler-cromwell">GitHub</a></li>
@@ -42,39 +42,24 @@
                     </div>
                 </aside>
 
-                <div class="col-md-9">
-                    <div id="nav" class="nav-scroller mt-2 mb-4 border-bottom">
-                        <nav class="nav d-flex justify-content-between">
-                            <a class="p-2 text-dark" href="{% url 'core:posts' %}">All Posts</a>
-                            <a class="p-2 text-dark" href="{% url 'core:books' %}">Book Problems & Solutions</a>
-                            <a class="p-2 text-dark" href="{% url 'core:programming' %}">Programming Tutorials</a>
-                            <a class="p-2 text-dark" href="{% url 'core:travel' %}">Travel Stories</a>
-                        </nav>
-                    </div>
-
-                    <div class="row mb-2">
-                        {% for post in featured %}
-                            <div class="col-md-6 mb-4">
-                                <div class="row no-gutters border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative h-100">
-                                    <div class="col p-4 d-flex flex-column position-static">
-                                        <h5 class="card-title pb-1 mb-0">{{ post.title }}</h5>
-                                        <div class="mb-1 text-muted">
-                                            {{ post.published_date }} | 
-                                            {% if post.category == books %}
-                                                <strong class="d-inline-block" style="color: saddlebrown;">Books</strong>
-                                            {% elif post.category == programming %}
-                                                <strong class="d-inline-block text-danger">Programming</strong>
-                                            {% elif post.category == travel %}
-                                                <strong class="d-inline-block text-warning">Travel</strong>
-                                            {% endif %}
-                                        </div>
-                                        <p class="card-text mb-auto">{{ post.summary }}</p>
-                                        <a href="{% url 'core:details' post.id %}" class="stretched-link"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+                <div class="col-md-9 pt-5">
+                    <ul class="pl-0">
+                    {% for post in posts %}
+                        <li class="post-link">
+                            <a class="text-dark" href="{% url 'core:details' post.id %}">
+                                <span class="date">{{ post.published_date }}</span>
+                                {% if post.category == books %}
+                                    <span class="text-primary category">Books</span>
+                                {% elif post.category == programming %}
+                                    <span class="text-danger category">Programming</span>
+                                {% elif post.category == travel %}
+                                    <span class="text-warning category">Travel</span>
+                                {% endif %}
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 </div>
              </div>
         </main>

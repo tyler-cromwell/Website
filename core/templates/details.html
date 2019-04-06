@@ -8,24 +8,17 @@
 
 
 {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static "details.css" %}">
 {% endblock css %}
 
 
 {% block body %}
         <a href="{% url 'core:index' %}">Home</a>
-        <a href="{% url 'core:posts' %}">Posts</a>
-        {% if category == books %}
-            <a href="{% url 'core:books' %}">Book Problems & Solutions</a>
-        {% elif category == programming %}
-            <a href="{% url 'core:programming' %}">Programming Tutorials</a>
-        {% elif category == travel %}
-            <a href="{% url 'core:travel' %}">Travel Stories</a>
-        {% endif %}
 
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
         <main role="main" class="container">
             <div class="row justify-content-center pb-5">
-                <div class="col-md-9">
+                <div class="col-md-9 border border-primary pt-3 pl-4 pr-4 pb-2 rounded bg-white">
                     <h1>{{ post.title }}</h1>
                     <p >{{ post.published_date }}</p>
 
