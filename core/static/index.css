@@ -5,13 +5,6 @@ div.vertical-center {
     display: flex;
     align-items: center;
 }
-*/
-
-
-img#profile {
-    max-width: 100%;
-    height: auto;
-}
 
 
 h5.card-title {
@@ -19,17 +12,12 @@ h5.card-title {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+*/
 
 
 li {
     display: list-item;
     list-style: none;
-}
-
-
-a:hover {
-    color: inherit; /* not working? */
-    text-decoration: none;
 }
 
 
@@ -53,4 +41,15 @@ span.category {
     width: 110px;
     margin-right: 10px;
     text-align: center;
+}
+
+
+img#profile {
+    max-width: 100%;
+    height: auto;
+}
+
+
+a:hover {
+    text-decoration: none;
 }
