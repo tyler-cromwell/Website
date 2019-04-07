@@ -17,7 +17,13 @@
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
         <main role="main" class="container">
             <div class="row justify-content-center pb-5">
+            {% if post.category == books %}
                 <div class="col-md-9 border border-primary pt-3 pl-4 pr-4 pb-2 rounded bg-white">
+            {% elif post.category == programming %}
+                <div class="col-md-9 border border-danger pt-3 pl-4 pr-4 pb-2 rounded bg-white">
+            {% elif post.category == travel %}
+                <div class="col-md-9 border border-warning pt-3 pl-4 pr-4 pb-2 rounded bg-white">
+            {% endif %}
                     <h1>{{ post.title }}</h1>
                     <p >{{ post.published_date }}</p>
 
