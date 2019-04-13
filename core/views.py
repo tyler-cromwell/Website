@@ -17,14 +17,16 @@ def _inner_view(request, name, context={}):
 
 
 def index(request):
-    posts = models.Post.objects \
-               .filter(enabled=True) \
-               .order_by('-id')
+    posts = models.Post.objects.filter(enabled=True).order_by('-id')
     context = {'posts': posts}
     return _inner_view(request, 'index.html', context)
 
 
 def details(request, post_id):
     post = get_object_or_404(models.Post, pk=post_id)
-    context = {'post': post}
+    related = models.Post.objects.filter(enabled=True).order_by('-id')
+    context = {
+        'post': post,
+        'related': related
+    }
     return _inner_view(request, 'details.html', context)

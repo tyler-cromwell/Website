@@ -3,7 +3,7 @@
 
 
 {% block meta %}
-    <title>{{ post.id }} | Tyler Cromwell</title>
+    <title>Tyler Cromwell | {{ post.title }}</title>
 {% endblock meta %}
 
 
@@ -11,51 +11,57 @@
 {% endblock css %}
 
 
-{% block body %}
-        <a href="{% url 'core:index' %}">Home</a>
-
+{% block main %}
+        <!--<a class="bg-dark" href="{% url 'core:index' %}">Home</a>-->
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
-        <main role="main" class="container">
-            <div class="row justify-content-center pb-5">
-            {% if post.category == books %}
-                <div class="col-md-9 border border-primary pt-3 pl-4 pr-4 pb-2 rounded bg-white">
-            {% elif post.category == programming %}
-                <div class="col-md-9 border border-danger pt-3 pl-4 pr-4 pb-2 rounded bg-white">
-            {% elif post.category == travel %}
-                <div class="col-md-9 border border-warning pt-3 pl-4 pr-4 pb-2 rounded bg-white">
-            {% endif %}
-                    <h1>{{ post.title }}</h1>
-                    <p >{{ post.published_date }}</p>
+        <div class="row pb-5 pt-4">
+            <aside class="col-md-3 pt-2">
+                <h4>Related Content</h4>
+                {% for r in related %}
+                    <div class="row border rounded pl-4 pr-4 mb-2 bg-light">
+                        <div class="title-cutoff">{{ r.title }}</div>
+                    </div>
+                {% endfor %}
+            </aside>
 
-                    <p>{{ post.text }}</p>
-                    <hr>
-                    <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-                    <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                    <blockquote>
-                        <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </blockquote>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                    <h2>Heading</h2>
-                    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <h3>Sub-heading</h3>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <pre><code>Example code block</code></pre>
-                    <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-                    <h3>Sub-heading</h3>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <ul>
-                        <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                        <li>Donec id elit non mi porta gravida at eget metus.</li>
-                        <li>Nulla vitae elit libero, a pharetra augue.</li>
-                    </ul>
-                    <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                    <ol>
-                        <li>Vestibulum id ligula porta felis euismod semper.</li>
-                        <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                        <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-                    </ol>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-                </div>
+        {% if post.category == books %}
+            <div class="col-md-9 border border-primary rounded pt-3 pl-4 pr-4 pb-2 bg-white">
+        {% elif post.category == programming %}
+            <div class="col-md-9 pl-4 pr-4 pb-2 bg-light">
+        {% elif post.category == travel %}
+            <div class="col-md-9 border border-warning rounded pt-3 pl-4 pr-4 pb-2 bg-white">
+        {% endif %}
+                <h1>{{ post.title }}</h1>
+                <p >{{ post.published_date }}</p>
+
+                <p>{{ post.text }}</p>
+                <hr>
+                <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+                <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+                <blockquote>
+                    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </blockquote>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                <h2>Heading</h2>
+                <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                <h3>Sub-heading</h3>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <pre><code>Example code block</code></pre>
+                <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                <h3>Sub-heading</h3>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <ul>
+                    <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+                    <li>Donec id elit non mi porta gravida at eget metus.</li>
+                    <li>Nulla vitae elit libero, a pharetra augue.</li>
+                </ul>
+                <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+                <ol>
+                    <li>Vestibulum id ligula porta felis euismod semper.</li>
+                    <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+                    <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+                </ol>
+                <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
             </div>
-        </main>
-{% endblock body %}
+        </div>
+{% endblock main %}

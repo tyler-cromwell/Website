@@ -12,55 +12,40 @@
 {% endblock css %}
 
 
-{% block body %}
+{% block main %}
         <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
-        <main role="main" class="container">
-            <div class="row pb-5">
-                <aside class="col-md-3 pt-4">
-                    <div class="p-4 mb-3 text-center">
-                        <img id="profile" class="rounded-circle" src="{% static "profile.jpg" %}"/>
-                    </div>
-
-                    <div class="p-4 mb-3 border border-dark rounded bg-light">
-                        <h4 class="font-italic"><u>About Me</u></h4>
-                        <p class="mb-0">
-                            My name is Tyler Cromwell, I'm a senior majoring in Computer Science at the University of Connecticut.
-                            I am heavily interested in travelling and pretty much all things related to computers and circuits.
+        <div class="row pb-5 pt-4">
+            <aside class="col-md-3 mr-5">
+                <div class="row border rounded bg-light">
+                    <div class="p-3 text-center">
+                        <img id="profile" alt="Profile Picture" class="border border-primary rounded-circle" width="150" src="{% static "profile.png" %}"/>
+                        <h5 class="pt-4">Tyler Cromwell</h5>
+                        <p class="mb-0 text-center">
+                            I'm a senior majoring in Computer Science at the University of Connecticut.
+                            I'm heavily interested in travelling and pretty much all things related to computers.
                         </p>
                     </div>
-
-                    <div class="row">
-                        <div class="col p-2 text-center">
-                            <h4 class="font-italic">Elsewhere</h4>
-                            <ol class="list-unstyled">
-                                <li><a href="https://github.com/tyler-cromwell">GitHub</a></li>
-                                <li><a href="#">LinkedIn</a></li>
-                                <li><a href="https://www.hackerrank.com/tjc6185">HackerRank</a></li>
-                                <li><a href="https://leetcode.com/tjc6185/">LeetCode</a></li>
-                            </ol>
-                        </div>
-                    </div>
-                </aside>
-
-                <div class="col-md-9 pt-5">
-                    <ul class="pl-0">
-                    {% for post in posts %}
-                        <li class="post-link">
-                            <a class="text-dark" href="{% url 'core:details' post.id %}">
-                                <span class="date">{{ post.published_date }}</span>
-                                {% if post.category == books %}
-                                    <span class="text-primary category">Books</span>
-                                {% elif post.category == programming %}
-                                    <span class="text-danger category">Programming</span>
-                                {% elif post.category == travel %}
-                                    <span class="text-warning category">Travel</span>
-                                {% endif %}
-                                {{ post.title }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                    </ul>
                 </div>
-             </div>
-        </main>
-{% endblock body %}
+            </aside>
+
+            <div class="col-md-8 border rounded bg-light">
+                <ul class="pl-0">
+                {% for post in posts %}
+                    <li class="post-link">
+                        <a class="text-dark" href="{% url 'core:details' post.id %}">
+                            <span class="date">{{ post.published_date }}</span>
+                            {% if post.category == books %}
+                                <span class="text-primary category">Books</span>
+                            {% elif post.category == programming %}
+                                <span class="text-danger category">Programming</span>
+                            {% elif post.category == travel %}
+                                <span class="text-warning category">Travel</span>
+                            {% endif %}
+                            {{ post.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+         </div>
+{% endblock main %}
