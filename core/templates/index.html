@@ -13,10 +13,11 @@
 
 
 {% block main %}
-        <!-- Based on the Bootstrap example/template "Blog", by @mdo (https://twitter.com/mdo) -->
-        <div class="row pb-5 pt-4">
-            <aside class="col-md-3 mr-5">
-                <div class="row border rounded bg-light">
+        <div class="row pb-5">
+            <div class="col-md-1"></div>
+
+            <aside class="col-md-3">
+                <div class="row border-top border-right">
                     <div class="p-3 text-center">
                         <img id="profile" alt="Profile Picture" class="border border-primary rounded-circle" width="150" src="{% static "profile.png" %}"/>
                         <h5 class="pt-4">Tyler Cromwell</h5>
@@ -28,7 +29,7 @@
                 </div>
             </aside>
 
-            <div class="col-md-8 border rounded bg-light">
+            <div class="col-md-7 border-top pt-3">
                 <ul class="pl-0">
                 {% for post in posts %}
                     <li class="post-link">
@@ -47,5 +48,7 @@
                 {% endfor %}
                 </ul>
             </div>
-         </div>
+
+            <div class="col-md-1"></div>
+        </div>
 {% endblock main %}
