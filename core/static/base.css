@@ -13,3 +13,8 @@ body.custom {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.hljs {
+    padding: 20px;
+}
