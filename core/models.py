@@ -68,6 +68,7 @@ class Code(models.Model):
     class Meta:
         verbose_name = 'Source Code'
         verbose_name_plural = 'Source Code'
+
     post = models.ForeignKey(
         'Post',
         on_delete=models.CASCADE
