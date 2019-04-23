@@ -13,13 +13,19 @@ class PostAdmin(admin.ModelAdmin):
     }
 
     # Home > Core > Posts page
-    list_display = ('id', 'category', 'title', 'created_date', 'published_date', 'featured', 'enabled')
+    list_display = ('id', 'category', 'title', 'path', 'created_date', 'published_date', 'featured', 'enabled')
     list_filter = ('category', 'featured', 'enabled')
+
+    # Home > Core > Posts > [specific] page
+    fieldsets = (
+        ('General', {'fields': ('author', 'category', 'title', 'summary', 'path', 'created_date', 'published_date')}),
+        ('Availability', {'fields': ('featured', 'enabled')})
+    )
 
 
 class ImageAdmin(admin.ModelAdmin):
     # Home > Core > Images page
-    list_display = ('id', 'image', 'post', 'order')
+    list_display = ('id', 'post', 'image', 'summary', 'order')
     list_filter = ('post',)
 
 

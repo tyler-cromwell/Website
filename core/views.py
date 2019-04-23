@@ -24,9 +24,13 @@ def index(request):
 
 def details(request, post_id):
     post = get_object_or_404(models.Post, pk=post_id)
-    related = models.Post.objects.filter(enabled=True).order_by('-id')
+    images = models.Image.objects.filter(post=post_id).order_by('order')
+    code = models.Code.objects.filter(post=post_id).order_by('order')
+    #related = models.Post.objects.filter(enabled=True).order_by('-id')
     context = {
         'post': post,
-        'related': related
+        'images': images,
+        'code': code
+        #'related': related
     }
-    return _inner_view(request, 'details.html', context)
+    return _inner_view(request, post.path, context)

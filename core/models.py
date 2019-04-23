@@ -27,9 +27,15 @@ class Post(models.Model):
         default=Category.PROGRAMMING.value
     )
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     summary = models.CharField(max_length=200)
-    text = models.TextField()
+
+    path = models.CharField(
+        blank=True,
+        help_text='Relative path name of the file',
+        max_length=100
+    )
+
     created_date = models.DateField(default=timezone.now)
     published_date = models.DateField(blank=True, null=True)
 
@@ -53,6 +59,11 @@ class Image(models.Model):
     )
     image = models.CharField(
         help_text='Relative path name of the file',
+        max_length=100
+    )
+    summary = models.CharField(
+        blank=True,
+        help_text='Short description of the image',
         max_length=100
     )
     order = models.IntegerField(
