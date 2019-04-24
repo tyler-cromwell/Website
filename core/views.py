@@ -32,4 +32,4 @@ def details(request, post_id):
         'code': code
         #'related': related
     }
-    return _inner_view(request, post.path, context)
+    return _inner_view(request, 'posts/' + post.path, context)
