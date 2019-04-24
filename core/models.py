@@ -53,10 +53,8 @@ class Post(models.Model):
 
 
 class Image(models.Model):
-    post = models.ForeignKey(
-        'Post',
-        on_delete=models.CASCADE
-    )
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+
     image = models.CharField(
         help_text='Relative path name of the file',
         max_length=100
@@ -80,14 +78,9 @@ class Code(models.Model):
         verbose_name = 'Source Code'
         verbose_name_plural = 'Source Code'
 
-    post = models.ForeignKey(
-        'Post',
-        on_delete=models.CASCADE
-    )
-    language = models.CharField(
-        blank=False,
-        max_length=40
-    )
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    language = models.CharField(blank=False, max_length=40)
+
     order = models.IntegerField(
         default=0,
         help_text='Order of appearance on page (descending)'

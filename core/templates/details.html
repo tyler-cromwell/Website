@@ -8,20 +8,20 @@
 
 
 {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static "details.css" %}">
 {% endblock css %}
 
 
 {% block main %}
-        <div class="row pb-5">
-            <div class="col-md-1"></div>
+            <div class="row pb-5">
+                <div class="col-md-1"></div>
 
-            <div class="col-md-10 border-top pt-4 pl-4 pr-4 pb-2">
-                <h1>{{ post.title }}</h1>
-                <p>{{ post.published_date }}</p>
+                <div class="col-md-10 border-top pt-4 pl-4 pr-4 pb-2">
+                    <h1>{{ post.title }}</h1>
+                    <p><i>{{ post.published_date }}</i></p>
+                    {% block content %}{% endblock content %}
+                </div>
 
-                {% block content %}{% endblock content %}
+                <div class="col-md-1"></div>
             </div>
-
-            <div class="col-md-1"></div>
-        </div>
 {% endblock main %}

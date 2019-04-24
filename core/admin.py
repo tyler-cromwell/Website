@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     }
 
     # Home > Core > Posts page
-    list_display = ('id', 'category', 'title', 'path', 'created_date', 'published_date', 'featured', 'enabled')
+    list_display = ('id', 'title', 'path', 'category', 'created_date', 'published_date', 'featured', 'enabled')
     list_filter = ('category', 'featured', 'enabled')
 
     # Home > Core > Posts > [specific] page
