@@ -1,18 +1,16 @@
+p {
+    font-size: 1.1em;
+}
+
+
 body.custom {
     /*
-    background-color: #ececec;
     font-family: Ubuntu, sans-serif;
     font-family: DejaVu Sans Mono, monospace;
     font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
     */
-    font-family: Georgia, serif;
-}
-
-
-.title-cutoff {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-family: Georgia,Times-New Roman,Serif;
+    line-height: 1.6;
 }
 
 
