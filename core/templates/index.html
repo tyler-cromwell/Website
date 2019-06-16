@@ -41,7 +41,7 @@
             <div class="col-md-6 border-top pt-3">
                 <ul class="pl-0">
                 {% for post in posts %}
-                    <li class="post-link">
+                    <li class="post-link pb-1">
                         <a class="text-dark" href="{% url 'core:details' post.id %}">
                             <span class="date">{{ post.published_date }}</span>
                             {% if post.category == books %}
