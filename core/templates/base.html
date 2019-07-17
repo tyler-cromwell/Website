@@ -23,9 +23,7 @@
     <body class="bg-light custom">
         <div class="container">
             <div class="row pb-1">
-                <div class="col-lg-1"></div>
-
-                <div class="col-lg-10">
+                <div class="ml-auto mr-auto col-lg-10">
                     <nav class="navbar navbar-expand-lg navbar-light border-bottom">
                         <a class="navbar-brand" href="{% url 'core:index' %}">Tyler Cromwell</a>
 
@@ -62,13 +60,11 @@
                         </div>
                     </nav>
                 </div>
-
-                <div class="col-lg-1"></div>
             </div>
         </div>
 
         <!-- Template-specific main content -->
-        <main role="main" class="container">
+        <main class="container">
             {% block main %}{% endblock main %}
         </main>
 
